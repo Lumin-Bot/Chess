@@ -1,0 +1,10 @@
+.gameboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
+    width: 480px;
+
+    /* Dummy Color */
+    background-color: aqua;
+}
