@@ -4,14 +4,14 @@ const gameBoard = document.querySelector("#gameboard")
 
 
 const pieces = [
-    b_rook, b_knight, b_bishop, b_queen, b_king, b_bishop, b_knight, b_rook,
-    b_pawn, b_pawn, b_pawn, b_pawn, b_pawn, b_pawn, b_pawn, b_pawn,
+    rook, knight, bishop, queen, king, bishop, knight, rook,
+    pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn,
     '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '',
-    w_pawn, w_pawn, w_pawn, w_pawn, w_pawn, w_pawn, w_pawn, w_pawn,
-    w_rook, w_knight, w_bishop, w_king, w_queen, w_bishop, w_knight, w_rook
+    pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn,
+    rook, knight, bishop, king, queen, bishop, knight, rook
 ]
 
 function createBoard(){
@@ -31,6 +31,13 @@ function createBoard(){
         }
 
         gameBoard.appendChild(square);
+
+        if(i <= 15){
+            square.firstChild.classList.add("black")
+        }
+        if(i >= 48){
+            square.firstChild.classList.add("white")
+        }
     })
 
 
