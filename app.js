@@ -36,10 +36,10 @@ function createBoard(){
         gameBoard.appendChild(square);
 
         if(i <= 15){
-            square.firstChild.classList.add("black")
+            square.firstChild.firstChild.classList.add("black")
         }
         if(i >= 48){
-            square.firstChild.classList.add("white")
+            square.firstChild.firstChild.classList.add("white")
         }
     })
 }
@@ -67,5 +67,5 @@ function dragOver(event){
 }
 
 function dragDrop(event){
-    
+
 }
