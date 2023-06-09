@@ -18,8 +18,11 @@ function createBoard(){
     pieces.forEach((startPiece, i) => {
         const square = document.createElement('div')
         square.classList.add("square")
-        square.setAttribute("tag", i)
         square.innerHTML = startPiece
+        
+        square.setAttribute("number", i)
+        square.firstChild && square.firstChild.setAttribute('draggable', true)
+
 
         let row = Math.floor((63 - i) / 8) + 1
 
@@ -39,8 +42,6 @@ function createBoard(){
             square.firstChild.classList.add("white")
         }
     })
-
-
 }
 
 createBoard()
