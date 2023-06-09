@@ -1,4 +1,4 @@
-const king = '<div class="piece" id="king">&#9812</div>'
+const king = '<div class="piece" id="king"><div>&#9812</div></div>'
 const queen = '<div class="piece" id="queen">&#9813</div>'
 const bishop = '<div class="piece" id="bishop">&#9815</div>'
 const knight = '<div class="piece" id="knight">&#9816</div>'

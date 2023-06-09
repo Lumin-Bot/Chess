@@ -1,5 +1,5 @@
 const gameBoard = document.querySelector("#gameboard")
-
+let startPositionNum 
 
 
 
@@ -46,3 +46,26 @@ function createBoard(){
 
 createBoard()
 
+const allSquares = document.querySelectorAll("#gameboard .square")
+
+
+allSquares.forEach(square => {
+    square.addEventListener("dragstart", dragStart)
+    square.addEventListener("dragover", dragOver)
+    square.addEventListener("dragdrop", dragDrop)
+
+})
+
+
+function dragStart(event){
+    startPositionNum = event.target.parentNode.getAttribute("number")
+}
+
+function dragOver(event){
+    event.preventDefault()
+    console.log(event.target)
+}
+
+function dragDrop(event){
+    
+}

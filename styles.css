@@ -12,7 +12,7 @@ body{
     flex-wrap: wrap;
     height: 480px;
     width: 480px;
-    z-index: -9;
+
 
 }
 
@@ -20,7 +20,7 @@ body{
     position: relative;
     height: 60px;
     width: 60px;
-    z-index: -3;
+
 }
 
 .brown{
@@ -33,7 +33,7 @@ body{
 
 .piece{
     position: relative;
-    z-index: 2;
+
 
 }
 
@@ -45,7 +45,6 @@ body{
     color:black;
     text-align: center;
     font-size: 2.5rem;
-    z-index: -2;
 
 }
 
@@ -57,12 +56,12 @@ body{
     color: white;
     text-align: center;
     font-size: 2.5rem;
-    z-index: -2;
+
 
 }
 
 .path{
     position: relative;
-    z-index: -3;
+
 
 }
