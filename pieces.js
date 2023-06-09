@@ -1,0 +1,6 @@
+const king = '<div class="piece" id="king">&#9812</div>'
+const queen = '<div class="piece" id="queen">&#9813</div>'
+const bishop = '<div class="piece" id="bishop">&#9815</div>'
+const knight = '<div class="piece" id="knight">&#9816</div>'
+const rook = '<div class="piece" id="rook">&#9814</div>'
+const pawn = '<div class="piece" id="pawn">&#9817</div>'
