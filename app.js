@@ -1,5 +1,6 @@
 const gameBoard = document.querySelector("#gameboard")
 let startPositionNum 
+let dragTarget
 
 
 
@@ -46,26 +47,51 @@ function createBoard(){
 
 createBoard()
 
-const allSquares = document.querySelectorAll("#gameboard .square")
+const allSquares = document.querySelectorAll(".square")
+const allPieces = document.querySelectorAll(".pieces")
+
+// allSquares.forEach(square => {
+//     square.addEventListener("dragstart", dragStart)
+//     square.addEventListener("dragover", dragOver)
+//     square.addEventListener("dragdrop", dragDrop)
+
+// })
 
 
-allSquares.forEach(square => {
-    square.addEventListener("dragstart", dragStart)
-    square.addEventListener("dragover", dragOver)
-    square.addEventListener("dragdrop", dragDrop)
+// function dragStart(event){
+//     console.log(event)
+//     startPositionNum = event.target.parentNode.getAttribute("number")
+//     dragTarget = event.target
+// }
 
-})
+// function dragOver(event){
+//     event.preventDefault()
+//     console.log(event.target)
+// }
 
+// function dragDrop(event){
+//     event.stopPropagation()
+    
+//     event.target.append(dragTarget)
+// }
 
-function dragStart(event){
-    startPositionNum = event.target.parentNode.getAttribute("number")
-}
+// allPieces.forEach(peace =>{
+//     allPieces.addEventListener("dragstart", () => { 
+//         allPieces.classList.add("dragging")
+//     })
 
-function dragOver(event){
-    event.preventDefault()
-    console.log(event.target)
-}
+//     allPieces.addEventListener("dragend", () => {
+//         allPieces.classList.remove("dragging")
+//     })
+// })
 
-function dragDrop(event){
+// allSquares.forEach(square => {
+//     for(var i = 0; i < allSquares.length; i++){
+//         allSquares[i].addEventListener("dragover", event => {
+//             event.preventDefault()
+//             const draggable = document.querySelector(".dragging")
+//             allSquares.push(draggable)
+//         })
+//     }
 
-}
+// })
