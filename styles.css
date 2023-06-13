@@ -33,30 +33,26 @@ body{
 
 .piece{
     position: relative;
-    z-index: 3;
+    z-index: 9;
+}
+
+.square svg{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    text-align: center;
+    font-size: 2.5rem;
+    z-index: -9;
+
 }
 
 .black{
-    position: relative;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
-    color:black;
-    text-align: center;
-    font-size: 2.5rem;
-    z-index: -9;
-
+    fill: black;
 }
 
 .white{
-    position: relative;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
-    color: white;
-    text-align: center;
-    font-size: 2.5rem;
-    z-index: -9;
+    fill: white;
 }
 
 .path{

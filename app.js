@@ -47,51 +47,35 @@ function createBoard(){
 
 createBoard()
 
-const allSquares = document.querySelectorAll(".square")
-const allPieces = document.querySelectorAll(".pieces")
-
-// allSquares.forEach(square => {
-//     square.addEventListener("dragstart", dragStart)
-//     square.addEventListener("dragover", dragOver)
-//     square.addEventListener("dragdrop", dragDrop)
-
-// })
+const allSquares = document.querySelectorAll("#gameboard .square")
+const allPieces = document.querySelectorAll(".piece")
 
 
-// function dragStart(event){
-//     console.log(event)
-//     startPositionNum = event.target.parentNode.getAttribute("number")
-//     dragTarget = event.target
-// }
+allSquares.forEach(square => {
+    square.addEventListener("dragstart", dragStart)
+    square.addEventListener("dragover", dragOver)
+    square.addEventListener("drop", dragDrop)
 
-// function dragOver(event){
-//     event.preventDefault()
-//     console.log(event.target)
-// }
+})
 
-// function dragDrop(event){
-//     event.stopPropagation()
+
+function dragStart(event){
+    startPositionNum = event.target.parentNode.getAttribute("number")
+    dragTarget = event.target
+ }
+
+function dragOver(event){
+    event.preventDefault()
+}
+
+function dragDrop(event){
+    event.stopPropagation()
+    console.log(event.target)
+
+
+    //event.target.parentNode.append(dragTarget)
+    //event.target.remove()
+    //event.target.append(dragTarget)
     
-//     event.target.append(dragTarget)
-// }
+}
 
-// allPieces.forEach(peace =>{
-//     allPieces.addEventListener("dragstart", () => { 
-//         allPieces.classList.add("dragging")
-//     })
-
-//     allPieces.addEventListener("dragend", () => {
-//         allPieces.classList.remove("dragging")
-//     })
-// })
-
-// allSquares.forEach(square => {
-//     for(var i = 0; i < allSquares.length; i++){
-//         allSquares[i].addEventListener("dragover", event => {
-//             event.preventDefault()
-//             const draggable = document.querySelector(".dragging")
-//             allSquares.push(draggable)
-//         })
-//     }
-
-// })
