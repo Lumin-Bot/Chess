@@ -133,9 +133,21 @@ function checkValid(target){
             break
         
         case "knight":
+            if(startId + 8 * 2 - 1 === targetId ||
+                startId + 8 * 2 + 1 === targetId ||
+                startId + 8 - 2 === targetId ||
+                startId + 8 + 2 === targetId ||
+                startId - 8 * 2 - 1 === targetId ||
+                startId - 8 * 2 + 1 === targetId ||
+                startId - 8 - 2 === targetId ||
+                startId - 8 + 2 === targetId 
+            ){
+                return true
+            }
             break
         
         case "bishop":
+        
             break
 
         case "rook":
