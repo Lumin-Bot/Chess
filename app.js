@@ -75,14 +75,28 @@ function dragOver(event){
 
 function dragDrop(event){
     event.stopPropagation()
-
+    const correctPlayerTurn = dragTarget.firstChild.classList.contains(playerTurn)
     const taken = event.target.classList.contains("piece")
+    const opponentTurn = playerTurn === "black" ? "white" : "black"
+    const opponentPieceTake = event.target.firstChild?.classList.contains(opponentTurn)
 
+    if(correctPlayerTurn){
+        if(opponentPieceTake){ // && valid 
+            event.target.parentNode.append(dragTarget)
+            event.target.remove()
+            changeTurn()
+            return
+        }
+    }
 
-    //event.target.parentNode.append(dragTarget)
-    //event.target.remove()
-    event.target.append(dragTarget)
-    changeTurn()
+    if(taken){
+        infoDisplay.textContent = "Invalid move!"
+        setTimeout(() => {
+            infoDisplay.textContent = ""
+        }, 2000);
+        return
+    }
+ 
 }
 
 
