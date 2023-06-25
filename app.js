@@ -5,7 +5,7 @@ const infoDisplay = document.querySelector("#info")
 let playerTurn = "white"
 playerDisplay.textContent = "white"
 
-let startPositionNum 
+let startPositionId 
 let dragTarget
 
 const pieces = [
@@ -65,7 +65,7 @@ allSquares.forEach(square => {
 
 
 function dragStart(event){
-    startPositionNum = event.target.parentNode.getAttribute("number")
+    startPositionId = event.target.parentNode.getAttribute("number")
     dragTarget = event.target
  }
 
@@ -77,11 +77,12 @@ function dragDrop(event){
     event.stopPropagation()
     const correctPlayerTurn = dragTarget.firstChild.classList.contains(playerTurn)
     const taken = event.target.classList.contains("piece")
+    const valid = checkValid(event.target)
     const opponentTurn = playerTurn === "black" ? "white" : "black"
     const opponentPieceTake = event.target.firstChild?.classList.contains(opponentTurn)
 
     if(correctPlayerTurn){
-        if(opponentPieceTake){ // && valid 
+        if(opponentPieceTake && valid ){
             event.target.parentNode.append(dragTarget)
             event.target.remove()
             changeTurn()
@@ -89,14 +90,63 @@ function dragDrop(event){
         }
     }
 
-    if(taken){
+    if(taken && !opponentPieceTake){
         infoDisplay.textContent = "Invalid move!"
         setTimeout(() => {
             infoDisplay.textContent = ""
         }, 2000);
         return
     }
+
+    if(valid){
+        event.target.append(dragTarget)
+        changeTurn()
+        return
+    }
  
+}
+
+
+function checkValid(target){
+    const targetId = Number(target.getAttribute("number")) || 
+        Number(target.parentNode.getAttribute("number"))
+
+    const startId = Number(startPositionId)
+    const piece = dragTarget.id
+    console.log(targetId)
+    console.log(startId)
+    console.log(piece)
+
+    switch(piece){
+        case "pawn":
+            const startRow = [8, 9, 10, 11, 12, 13, 14, 15]
+            if(startRow.includes(startId) && 
+                startId + 8 * 2 === targetId || 
+                startId + 8 === targetId || 
+                startId + 8 - 1 === targetId && 
+                document.querySelector(`[number="${startId + 8 - 1}"]`).firstChild ||
+                startId + 8 + 1 === targetId && 
+                document.querySelector(`[number="${startId + 8 + 1}"]`).firstChild
+                ){
+                return true
+            }
+            break
+        
+        case "knight":
+            break
+        
+        case "bishop":
+            break
+
+        case "rook":
+            break
+
+        case "queen":
+            break
+
+        case "king":
+            break
+    }
 }
 
 
